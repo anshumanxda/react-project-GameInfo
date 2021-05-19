@@ -6,7 +6,7 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadGames());
-  });
+  }, [dispatch]);
   return (
     <div>
       <h1>Home</h1>
