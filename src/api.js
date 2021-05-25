@@ -45,12 +45,5 @@ export const newGames = () => {
 };
 
 //Game details
-export const gameDetailsUrl = (game_id) =>
+export const gameDetailsURL = (game_id) =>
   `${base_url}games/${game_id}?key=${api_key}`;
-
-//Games Screenshots
-
-export const gameScreenshot = (game_id) =>
-  `${base_url}games/${game_id}/screnshots?key=${api_key}`;
-console.log(gameDetailsUrl());
-console.log(popularGamesUrl());
