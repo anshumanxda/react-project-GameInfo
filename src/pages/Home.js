@@ -7,8 +7,12 @@ import Game from "../components/Game";
 //Styling
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  //get location
+  const location = useLocation();
+  const pathId = location.pathname.split("/")[2];
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(loadGames());
