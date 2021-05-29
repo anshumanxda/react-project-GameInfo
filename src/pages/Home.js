@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <GameList>
-      <GameDetail />
+      {pathId && <GameDetail />}
       <h2>Popular Games</h2>
       <Games>
         {popular.map((game) => (
