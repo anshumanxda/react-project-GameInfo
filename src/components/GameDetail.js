@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { smallImage } from "../util";
 
-const GameDetail = () => {
+const GameDetail = ({ pathId }) => {
   const history = useHistory();
   //Data
   const { game, isLoading } = useSelector((state) => state.detail);
@@ -23,10 +23,10 @@ const GameDetail = () => {
     <>
       {!isLoading && (
         <CardShadow className="shadow" onClick={exitDetailHandler}>
-          <Detail>
+          <Detail layoutId={pathId}>
             <Stats className="stats">
               <div className="rating">
-                <h3>{game.name}</h3>
+                <motion.h3 layoutId={`title${pathId}`}>{game.name}</motion.h3>
                 <p>Rating: {game.rating}</p>
               </div>
               <Info className="info">
@@ -39,7 +39,11 @@ const GameDetail = () => {
               </Info>
             </Stats>
             <Media className="media">
-              <img src={game.background_image} alt={game.background_image} />
+              <motion.img
+                LayoutId={`image${pathId}`}
+                src={game.background_image}
+                alt={game.background_image}
+              />
             </Media>
             <div className="description">
               <p>{game.description_raw}</p>
@@ -81,6 +85,8 @@ const Detail = styled(motion.div)`
   img {
     width: 100%;
   }
+
+  z-index: 10;
 `;
 
 const Stats = styled(motion.div)`
