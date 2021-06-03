@@ -10,7 +10,7 @@ import { smallImage } from "../util";
 const GameDetail = ({ pathId }) => {
   const history = useHistory();
   //Data
-  const { game, isLoading } = useSelector((state) => state.detail);
+  const { game, isloading } = useSelector((state) => state.detail);
 
   const exitDetailHandler = (e) => {
     const element = e.target;
@@ -21,7 +21,7 @@ const GameDetail = ({ pathId }) => {
 
   return (
     <>
-      {!isLoading && (
+      {!isloading && (
         <CardShadow className="shadow" onClick={exitDetailHandler}>
           <Detail layoutId={pathId}>
             <Stats className="stats">
@@ -41,7 +41,7 @@ const GameDetail = ({ pathId }) => {
             <Media className="media">
               <motion.img
                 LayoutId={`image${pathId}`}
-                src={game.background_image}
+                src={smallImage(game.background_image, 1280)}
                 alt={game.background_image}
               />
             </Media>
